@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Local safety backups
+backups/
+
+# Design/build log — not published
+chat.txt
+
+# Editor / tooling output
+.trae-html-share-packages/
+
+# Build output
+dist/
