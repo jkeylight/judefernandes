@@ -56,7 +56,7 @@
     gsap.from('.hero-meta, .hero .eyebrow, .hero-foot, .hero-bottom-line', {
       y: 18, opacity: 0, duration: .8, stagger: .12, ease: 'power3.out', delay: .25
     });
-    gsap.from('.hero-image-wrap', { scale: 1.08, opacity: 0, duration: 1.5, ease: 'power3.out', delay: .25 });
+    gsap.from('.hero-image-wrap', { scale: 1.08, duration: 1.5, ease: 'power3.out', delay: .25 });
     $$('.reveal-up').forEach(el => {
       gsap.fromTo(el, { y: 45, opacity: 0 }, {
         y: 0, opacity: 1, duration: 1, ease: 'power3.out',
