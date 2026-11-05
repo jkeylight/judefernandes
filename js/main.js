@@ -1,3 +1,7 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
+
 (() => {
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -27,7 +31,7 @@
   // Lenis smooth scroll
   let lenis;
   function initSmoothScroll() {
-    if (!window.Lenis || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     lenis = new Lenis({ duration: 1.15, smoothWheel: true, wheelMultiplier: 0.9, touchMultiplier: 1.25 });
     function raf(time) {
       lenis.raf(time);
@@ -47,7 +51,6 @@
   // GSAP motion
   function initMotion() {
     initSmoothScroll();
-    if (!window.gsap) return;
     gsap.registerPlugin(ScrollTrigger);
     gsap.from('.hero-title > span', {
       yPercent: 115, opacity: 0, duration: 1.25, stagger: 0.12,
@@ -91,7 +94,7 @@
         if (show) count++;
       });
       if (visibleCount) visibleCount.textContent = String(count).padStart(2, '0');
-      if (window.ScrollTrigger) ScrollTrigger.refresh();
+      ScrollTrigger.refresh();
     });
   });
 
